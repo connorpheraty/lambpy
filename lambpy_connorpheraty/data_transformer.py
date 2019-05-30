@@ -11,9 +11,17 @@ class DataTransformer:
         '''Function that bins columns into high and low cardinality lists
 
         Parameters
-        ----------------------------------
+        ----------
         tresh: int
             Threshold for determining low or high cardinality
+        
+        Returns
+        -------
+        high_card: list
+            List of columns containing unique observations above the threshold
+        
+        low_card: list
+            List of columns containing unique observations below the threshold
 
         '''
         import pandas as pd
@@ -37,6 +45,14 @@ class DataTransformer:
 
     def cat_num_split(self):
         ''' Splits a pandas dataframe into seperate numeric and categorical dataframes
+
+        Returns
+        -------
+        df_num: DataFrame
+            Dataframe containing columns with only numeric observations
+
+        df_cat: DataFrame
+            Dataframe containing columns with only categorical observations
         '''
 
         numeric = ['int_', 'intc', 'intp', 'int8', 'int16', 'int32', 'int64',
